@@ -342,7 +342,11 @@ impl Daemon {
     }
 
     pub fn magic(&self) -> u32 {
-        self.network.magic()
+        match self.network {
+            Network::Bitcoin => 0xF5E1BAD1,
+            Network::Testnet => 0xA7C9B1DB,
+            Network::Regtest => 0xDAC5BFFA,
+        }
     }
 
     fn call_jsonrpc(&self, request: &Value) -> Result<Value> {

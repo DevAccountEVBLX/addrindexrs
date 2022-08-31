@@ -155,7 +155,7 @@ fn default_daemon_dir() -> PathBuf {
         eprintln!("Error: unknown home directory");
         std::process::exit(1)
     });
-    home.push(".bitcoin");
+    home.push(".xep");
     home
 }
 
@@ -189,8 +189,8 @@ impl Config {
         config.db_dir.push(db_subdir);
 
         let default_daemon_port = match config.network {
-            Network::Bitcoin => 8332,
-            Network::Testnet => 18332,
+            Network::Bitcoin => 16816,
+            Network::Testnet => 18316,
             Network::Regtest => 18443,
         };
 
